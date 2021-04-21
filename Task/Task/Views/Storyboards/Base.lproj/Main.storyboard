@@ -1,8 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dFT-wm-CbP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Task List Table View Controller-->
+        <scene sceneID="Do6-PD-0X2">
+            <objects>
+                <tableViewController id="fvf-EG-Xvn" customClass="TaskListTableViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VL8-DT-0lu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" textLabel="6aP-KW-oLF" style="IBUITableViewCellStyleDefault" id="d2p-IC-DNy">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2p-IC-DNy" id="FN6-6r-H5o">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6aP-KW-oLF">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="p4N-ix-Pnu" kind="show" identifier="toTaskDetailVC" id="Z00-R8-8RG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fvf-EG-Xvn" id="J6I-Xq-2wf"/>
+                            <outlet property="delegate" destination="fvf-EG-Xvn" id="d0Y-d8-UEp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ePh-0k-Eqk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oo4-rB-z7n">
+                            <connections>
+                                <segue destination="p4N-ix-Pnu" kind="show" id="w6W-gH-APi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qor-9c-g6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4494.202898550725" y="-2579.4642857142858"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="oK2-sf-NPm">
+            <objects>
+                <viewController id="p4N-ix-Pnu" customClass="TaskDetailViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CM5-rX-yZl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7na-SE-e67">
+                                <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                                <connections>
+                                    <action selector="dueDatePickerChanged:" destination="p4N-ix-Pnu" eventType="valueChanged" id="vNn-Xn-RbN"/>
+                                </connections>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-GM-dBd">
+                                <rect key="frame" x="20.5" y="328" width="373" height="500"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task name…" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-kU-Hdg">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter notes here…" translatesAutoresizingMaskIntoConstraints="NO" id="YJt-RJ-Hll">
+                                        <rect key="frame" x="0.0" y="42" width="373" height="458"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="0Wd-t6-55g"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D5j-Lc-GbW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7na-SE-e67" firstAttribute="leading" secondItem="D5j-Lc-GbW" secondAttribute="leading" id="7bD-Qt-20C"/>
+                            <constraint firstItem="NbZ-GM-dBd" firstAttribute="top" secondItem="7na-SE-e67" secondAttribute="bottom" constant="24" id="92I-bk-aVB"/>
+                            <constraint firstItem="7na-SE-e67" firstAttribute="trailing" secondItem="D5j-Lc-GbW" secondAttribute="trailing" id="MiB-GQ-Ze2"/>
+                            <constraint firstItem="NbZ-GM-dBd" firstAttribute="width" secondItem="D5j-Lc-GbW" secondAttribute="width" multiplier="0.9" id="g2C-nK-aPM"/>
+                            <constraint firstItem="NbZ-GM-dBd" firstAttribute="centerX" secondItem="D5j-Lc-GbW" secondAttribute="centerX" id="sSE-BG-hGI"/>
+                            <constraint firstItem="7na-SE-e67" firstAttribute="top" secondItem="D5j-Lc-GbW" secondAttribute="top" id="uoM-d7-auk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DhY-ps-rNa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="By0-mU-qeG">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="p4N-ix-Pnu" id="arw-KF-dgS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskDueDatePicker" destination="7na-SE-e67" id="Uma-Q7-AZO"/>
+                        <outlet property="taskNameTextField" destination="uEd-kU-Hdg" id="dLn-RF-0bO"/>
+                        <outlet property="taskNotesTextView" destination="YJt-RJ-Hll" id="DwS-sK-RTT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpM-fA-tCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3611.594202898551" y="-2584.1517857142858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aFL-GS-j3Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dFT-wm-CbP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="irf-c6-XLG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fvf-EG-Xvn" kind="relationship" relationship="rootViewController" id="nKL-jQ-BoT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="piH-CJ-5Ct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5404.347826086957" y="-2579.4642857142858"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Z00-R8-8RG"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
