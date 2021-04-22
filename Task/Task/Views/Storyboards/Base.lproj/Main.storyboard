@@ -17,23 +17,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" textLabel="6aP-KW-oLF" style="IBUITableViewCellStyleDefault" id="d2p-IC-DNy">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="94" id="d2p-IC-DNy" customClass="TaskTableViewCell" customModule="Task" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2p-IC-DNy" id="FN6-6r-H5o">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6aP-KW-oLF">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-ir-rkf">
+                                            <rect key="frame" x="20" y="11" width="374" height="72"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1j-gS-2vB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="305" height="72"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ra-Dy-SfG">
+                                                    <rect key="frame" x="305" y="0.0" width="69" height="72"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7Ra-Dy-SfG" secondAttribute="height" multiplier="1:1" id="E70-wS-GNA"/>
+                                                        <constraint firstAttribute="width" constant="69" id="F7M-VI-Mxp"/>
+                                                    </constraints>
+                                                    <state key="normal" image="incomplete"/>
+                                                    <connections>
+                                                        <action selector="completionButtonTapped:" destination="d2p-IC-DNy" eventType="touchUpInside" id="KKp-xe-RO7"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RVn-ir-rkf" firstAttribute="top" secondItem="FN6-6r-H5o" secondAttribute="topMargin" id="EmN-6T-l6a"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="RVn-ir-rkf" secondAttribute="bottom" id="M6O-db-ZvH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="RVn-ir-rkf" secondAttribute="trailing" id="RnG-ww-vND"/>
+                                        <constraint firstItem="RVn-ir-rkf" firstAttribute="leading" secondItem="FN6-6r-H5o" secondAttribute="leadingMargin" id="yV8-wb-o6B"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="completionButton" destination="7Ra-Dy-SfG" id="Cgq-hr-6Yq"/>
+                                    <outlet property="taskNameLabel" destination="D1j-gS-2vB" id="wTj-yy-LPs"/>
                                     <segue destination="p4N-ix-Pnu" kind="show" identifier="toTaskDetailVC" id="Z00-R8-8RG"/>
                                 </connections>
                             </tableViewCell>
@@ -144,6 +167,7 @@
         <segue reference="Z00-R8-8RG"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="incomplete" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
