@@ -63,42 +63,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7na-SE-e67">
-                                <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="7na-SE-e67">
+                                <rect key="frame" x="39.5" y="96" width="335" height="315"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="315" id="zxM-Oa-cEp"/>
+                                </constraints>
                                 <connections>
                                     <action selector="dueDatePickerChanged:" destination="p4N-ix-Pnu" eventType="valueChanged" id="vNn-Xn-RbN"/>
                                 </connections>
                             </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-GM-dBd">
-                                <rect key="frame" x="20.5" y="328" width="373" height="500"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task name…" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-kU-Hdg">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter notes here…" translatesAutoresizingMaskIntoConstraints="NO" id="YJt-RJ-Hll">
-                                        <rect key="frame" x="0.0" y="42" width="373" height="458"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task name…" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-kU-Hdg">
+                                <rect key="frame" x="41.5" y="411" width="331" height="50"/>
+                                <color key="backgroundColor" red="0.75946019079633087" green="0.87876283265488342" blue="0.94240524028909622" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="0Wd-t6-55g"/>
+                                    <constraint firstAttribute="height" constant="50" id="l8M-Va-Rml"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="100" text="Enter notes here…" translatesAutoresizingMaskIntoConstraints="NO" id="YJt-RJ-Hll">
+                                <rect key="frame" x="41.5" y="469" width="331" height="377"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D5j-Lc-GbW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7na-SE-e67" firstAttribute="leading" secondItem="D5j-Lc-GbW" secondAttribute="leading" id="7bD-Qt-20C"/>
-                            <constraint firstItem="NbZ-GM-dBd" firstAttribute="top" secondItem="7na-SE-e67" secondAttribute="bottom" constant="24" id="92I-bk-aVB"/>
-                            <constraint firstItem="7na-SE-e67" firstAttribute="trailing" secondItem="D5j-Lc-GbW" secondAttribute="trailing" id="MiB-GQ-Ze2"/>
-                            <constraint firstItem="NbZ-GM-dBd" firstAttribute="width" secondItem="D5j-Lc-GbW" secondAttribute="width" multiplier="0.9" id="g2C-nK-aPM"/>
-                            <constraint firstItem="NbZ-GM-dBd" firstAttribute="centerX" secondItem="D5j-Lc-GbW" secondAttribute="centerX" id="sSE-BG-hGI"/>
-                            <constraint firstItem="7na-SE-e67" firstAttribute="top" secondItem="D5j-Lc-GbW" secondAttribute="top" id="uoM-d7-auk"/>
+                            <constraint firstItem="uEd-kU-Hdg" firstAttribute="top" secondItem="7na-SE-e67" secondAttribute="bottom" id="Fgy-I2-xnC"/>
+                            <constraint firstItem="YJt-RJ-Hll" firstAttribute="top" secondItem="uEd-kU-Hdg" secondAttribute="bottom" constant="8" id="ItQ-Cy-VNi"/>
+                            <constraint firstItem="D5j-Lc-GbW" firstAttribute="bottom" secondItem="YJt-RJ-Hll" secondAttribute="bottom" constant="16" id="K6O-Ux-BFa"/>
+                            <constraint firstItem="uEd-kU-Hdg" firstAttribute="width" secondItem="D5j-Lc-GbW" secondAttribute="width" multiplier="0.8" id="Ns5-5x-7Qv"/>
+                            <constraint firstItem="uEd-kU-Hdg" firstAttribute="centerX" secondItem="D5j-Lc-GbW" secondAttribute="centerX" id="Ryc-s9-OyW"/>
+                            <constraint firstItem="YJt-RJ-Hll" firstAttribute="centerX" secondItem="D5j-Lc-GbW" secondAttribute="centerX" id="Yzb-dH-vEq"/>
+                            <constraint firstItem="7na-SE-e67" firstAttribute="centerX" secondItem="D5j-Lc-GbW" secondAttribute="centerX" id="hXl-go-PsR"/>
+                            <constraint firstItem="7na-SE-e67" firstAttribute="top" secondItem="D5j-Lc-GbW" secondAttribute="top" constant="8" id="jIX-9z-0At"/>
+                            <constraint firstItem="7na-SE-e67" firstAttribute="width" secondItem="D5j-Lc-GbW" secondAttribute="width" multiplier="0.809179" id="omn-XK-xsz"/>
+                            <constraint firstItem="YJt-RJ-Hll" firstAttribute="width" secondItem="D5j-Lc-GbW" secondAttribute="width" multiplier="0.8" id="shx-Ky-YJU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DhY-ps-rNa">
@@ -146,6 +149,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
