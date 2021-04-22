@@ -14,6 +14,7 @@ class TaskListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         TaskController.shared.loadFromPersistenceStore()
+//        tableView.rowHeight = 50
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +34,10 @@ class TaskListTableViewController: UITableViewController {
         cell.task = task
         cell.delegate = self
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 
     // Override to support editing the table view.
