@@ -40,7 +40,6 @@ class TaskListTableViewController: UITableViewController {
         return 50
     }
 
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let taskToDelete = TaskController.shared.tasks[indexPath.row]
